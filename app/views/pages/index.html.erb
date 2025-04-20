@@ -1,0 +1,8 @@
+<div class="flex justify-center items-center h-screen">
+  <% if user_signed_in? %>
+    <p class="text-lg font-semibold">Welcome <%= current_user.email %></p>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "mt-4 px-4 py-2 bg-blue-500 text-white rounded" %>
+  <% else %>
+    <%= link_to "Login", new_user_session_path, class: "px-4 py-2 bg-green-500 text-white rounded" %>
+  <% end %>
+</div>

@@ -1,0 +1,28 @@
+%div.flex.items-center.justify-center.min-h-screen.bg-gray-100
+  %div.w-full.max-w-md.bg-white.p-8.rounded.shadow
+    .header.mb-6
+      %h2.text-2xl.font-bold.text-center
+        Log in
+    .body
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form-inputs.space-y-4
+          = f.label :email, "Email Address", class: "block text-sm font-medium text-gray-700"
+          = f.email_field :email,
+            required: false,
+            autofocus: true,
+            autocomplete: "email",
+            class: "input w-full border-2 border-gray-300 rounded-md p-2"
+
+          = f.label :password, "Password", class: "block text-sm font-medium text-gray-700"
+          = f.password_field :password,
+            required: false,
+            autocomplete: "current-password",
+            class: "input w-full border-2 border-gray-300 rounded-md p-2"
+
+          - if devise_mapping.rememberable?
+            = f.input :remember_me, as: :boolean
+
+        .form-actions.mt-6
+          = f.button :submit, "Log in", class: "px-4 py-2 bg-green-500 text-white rounded w-full"
+
+    = render "devise/shared/links"
