@@ -1,16 +1,41 @@
 <aside
-  x-show="sidebarOpen || isLargeScreen"
-  x-transition
-  class="fixed inset-y-0 left-0 z-30 w-64 bg-gray-800 text-white p-4 transform transition-transform duration-200 ease-in-out lg:relative lg:translate-x-0"
-  :class="{ '-translate-x-full': !sidebarOpen && !isLargeScreen, 'translate-x-0': sidebarOpen || isLargeScreen }"
->
-  <p class="text-lg font-bold mb-4">Sidebar</p>
+   x-show="sidebarOpen || isLargeScreen"
+   x-transition
+   class="fixed inset-y-0 left-0 z-30 w-64 bg-gray-800 text-white p-4 flex flex-col justify-between transform transition-transform duration-200 ease-in-out lg:relative lg:translate-x-0"
+   :class="{ '-translate-x-full': !sidebarOpen && !isLargeScreen, 'translate-x-0': sidebarOpen || isLargeScreen }"
+ >
+   <!-- Top Content -->     
+   <div>
+     <p class="text-lg font-bold mb-4">Sidebar</p>
+     <!-- Add your links/content here -->
+      <!-- Administrator Dropdown -->
+     <div x-data="{ open: false }">   
+       <button @click="open = !open" class="w-full flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg mb-2">
+         <i class="bi bi-person-gear text-lg"></i>
+         <span class="font-semibold">Administrator</span>
+         <i :class="open ? 'bi bi-caret-up-fill' : 'bi bi-caret-down-fill'" class="ml-auto text-sm"></i>
+       </button>
+       <div x-show="open" x-transition class="ml-4 mt-2 space-y-2">
+         <a href="#" class="block px-4 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg">User Management</a>
+         <a href="#" class="block px-4 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg">Logs</a>
+         <a href="#" class="block px-4 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg">System Settings</a>
+       </div>
+     </div>
+ 
+   </div>
+ 
+   <!-- Bottom Section with Divider and Logout -->
+   <div class="pt-3 border-t border-gray-400">
+     <% if user_signed_in? %>
+       <%= button_to destroy_user_session_path, method: :delete, class: "w-full flex items-center gap-2 mt-4 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg shadow transition duration-150" do %>
+         <i class="bi bi-box-arrow-right text-lg"></i>
+         <span class="font-semibold">Logout</span>
+       <% end %>
+     <% else %>
+       <%= link_to new_user_session_path, class: "w-full flex items-center gap-2 mt-4 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg shadow transition duration-150" do %>
+         <i class="bi bi-box-arrow-in-right text-lg"></i>
+         <span class="font-semibold">Login</span>
+       <% end %>
+     <% end %>
+   </div>
 </aside>
-
-<!-- Overlay -->
-<div
-  x-show="sidebarOpen && !isLargeScreen"
-  x-transition.opacity
-  @click="sidebarOpen = false"
-  class="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
-></div>

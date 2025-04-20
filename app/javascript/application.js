@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import Alpine from 'alpinejs'
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import Rails from "@rails/ujs"
 Rails.start()
