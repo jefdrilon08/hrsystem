@@ -40,7 +40,7 @@ gem 'tty-table'
 gem 'turbo-rails'
 gem 'whenever'
 gem 'zip-zip'
-gem "ruby-vips", "~> 2.1.4"
+gem "ruby-vips", "~> 2.2.3"
 gem "tailwindcss-rails"
 
 
