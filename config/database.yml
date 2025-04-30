@@ -13,7 +13,7 @@ development:
   database: <%= ENV['KOINS_DATABASE_NAME'] %>
 test:
   <<: *default
-  database: hr_2_test2
+  database: <%= ENV['KOINS_DATABASE_NAME'] %>
 production:
   <<: *default
   database: <%= ENV['KOINS_DATABASE_NAME'] %>
