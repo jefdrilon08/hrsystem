@@ -1,0 +1,11 @@
+class CreateAdminRegions < ActiveRecord::Migration[8.0]
+  def change
+    create_table :admin_regions, id: :uuid do |t|
+      t.string :name
+      t.string :short_name
+      t.string :status
+
+      t.timestamps
+    end
+  end
+end

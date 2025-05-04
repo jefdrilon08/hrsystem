@@ -1,0 +1,2 @@
+class JobCommittee < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class AdminRegion < ApplicationRecord
+end
