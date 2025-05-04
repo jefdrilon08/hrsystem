@@ -1,0 +1,21 @@
+%div{x_data: "{ open: true }", class: "bg-gray-800 text-white transition-all duration-300 flex flex-col #{'w-64' if open}#{'w-16' unless open}" }
+  %div.p-4.text-2xl.font-bold.border-b.border-gray-700.flex.items-center
+    %i.bi.bi-speedometer2.mr-2
+    %span{x_show: "open"} Dashboard
+
+  %nav.flex-1.p-4.space-y-4
+    = link_to root_path, class: "flex items-center space-x-3 p-2 rounded hover:bg-gray-700 transition" do
+      %i.bi.bi-house-door
+      %span{x_show: "open"} Home
+    = link_to "#", class: "flex items-center space-x-3 p-2 rounded hover:bg-gray-700 transition" do
+      %i.bi.bi-people
+      %span{x_show: "open"} Users
+    = link_to "#", class: "flex items-center space-x-3 p-2 rounded hover:bg-gray-700 transition" do
+      %i.bi.bi-gear
+      %span{x_show: "open"} Settings
+
+  %div.p-4.border-t.border-gray-700
+    = link_to "#", method: :delete, class: "flex items-center space-x-3 p-2 rounded hover:bg-gray-700 transition" do
+      %i.bi.bi-box-arrow-right
+      %span{x_show: "open"} Logout
+
