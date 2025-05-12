@@ -1,5 +1,5 @@
 <%# app/views/shared/_sidebar.html.erb %>
-<div x-data="{ open: true, dropdownOpen: false }" class="bg-gray-800 text-white transition-all duration-300 flex flex-col h-full">
+<div x-data="{ open: true, dropdownOpen: false, modalOpen: false }" class="bg-gray-800 text-white transition-all duration-300 flex flex-col h-full">
   <div class="p-4 text-2xl font-bold border-b border-gray-700 flex items-center">
     <i class="bi bi-speedometer2 mr-2"></i>
     <span x-show="open">Dashboard</span>
@@ -19,21 +19,28 @@
     </div>
     <!-- Dropdown Menu -->
     <div x-show="dropdownOpen" x-transition class="pl-8 mt-2 space-y-2">
-      <%= link_to "#", class: "flex items-center space-x-3 p-2 rounded hover:bg-gray-700 transition" do %>
-        <i class="bi bi-wrench"></i>
-        <span x-show="open">General Settings</span>
-      <% end %>
+      <button @click="modalOpen = true" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-700 transition mt-4">
+        <i class="bi bi-plus-circle"></i>
+        <span x-show="open">Admin</span>
+      </button>
+
       <%= link_to "#", class: "flex items-center space-x-3 p-2 rounded hover:bg-gray-700 transition" do %>
         <i class="bi bi-lock"></i>
         <span x-show="open">Security Settings</span>
       <% end %>
     </div>
   </nav>
+  
   <div class="p-4 border-t border-gray-700 mt-auto">
     <%= link_to "#", method: :delete, class: "flex items-center space-x-3 p-2 rounded hover:bg-gray-700 transition" do %>
       <i class="bi bi-box-arrow-right"></i>
       <span x-show="open">Logout</span>
     <% end %>
-  </div>  
+
+    <!-- Trigger Modal Button -->
+  </div>
+  
+  <%= render "shared/modal/admin" %>
+
 </div>
 

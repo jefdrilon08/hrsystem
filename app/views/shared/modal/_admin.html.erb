@@ -1,0 +1,45 @@
+<!-- Modal -->
+<div x-show="modalOpen" x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg w-1/3">
+    <div class="flex justify-between items-center">
+      <h3 class="text-xl font-bold text-black">Administration</h3>
+      <button @click="modalOpen = false" class="text-gray-600 text-2xl">&times;</button>
+    </div>
+
+    <hr class="my-4 border-t-2 border-gray-300">
+
+    <div class="mt-4 space-y-4">
+      <!-- Row 1: 2 Buttons -->
+      <div class="flex space-x-2">
+      	<a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">User</a>
+  	    <a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">Company</a>
+      </div>
+
+      <!-- Row 2: 3 Buttons -->
+      <div class="flex space-x-2">
+  	    <a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">Area</a>
+	      <a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">Cluster</a>
+  	    <a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">Branch</a>
+      </div>
+      <!-- Row 2: 3 Buttons -->
+      <div class="flex space-x-2">
+  	    <a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">Job Committee</a>
+	      <a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">Job Ranks</a>
+  	    <a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">Job Levels</a>
+  	    <a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">Job Titles</a>
+      </div>
+      <!-- Row 2: 3 Buttons -->
+      <div class="flex space-x-2">
+  	    <a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">Region</a>
+	      <a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">Province</a>
+  	    <a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">Municipality</a>
+  	    <a href="#" class="bg-blue-500 w-full px-6 py-4 text-lg rounded text-center block">Barangay</a>
+      </div>
+
+
+    </div>
+
+
+  </div>
+</div>
+
